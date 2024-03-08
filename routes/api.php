@@ -73,3 +73,11 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
                     $resultado = $primeiraEntrada*2;
                     return 'O dobro do ' .$primeiraEntrada . ' é igual a:' . $resultado;
                     });
+
+                    Route::get('arearetangulo' , function (Request $request){
+                        $base = $request->input('base');
+                        $altura = $request->input('altura');
+                        $resultado = $base*$altura;
+                        return 'A área do retângulo é: ' .$resultado;
+                        });
+                        
