@@ -80,4 +80,11 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
                         $resultado = $base*$altura;
                         return 'A área do retângulo é: ' .$resultado;
                         });
-                        
+
+                        Route::get('valorproduto' , function (Request $request){
+                            $preço = $request->input('preço');
+                            $porcentagem = $request->input('porcentagem');
+                            $desconto = ($preço * $porcentagem) /100;
+                            $resultado = $preço - $desconto;
+                            return $resultado;
+                            });
