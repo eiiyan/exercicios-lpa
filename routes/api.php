@@ -21,3 +21,10 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
     $cidade = $request->input('cidade');
     return 'Meu nome é ' . $nome . ', nasci no ano de ' .$nascimento . ' na cidade de '. $cidade;
     });
+
+    Route::get('somar', function(Request $request){
+        $primeiraEntrada = $request->input('primeiraEntrada');
+        $segundaEntrada = $request->input('segundaEntrada');
+        $resultado = $primeiraEntrada + $segundaEntrada;
+        return $resultado;
+        });
