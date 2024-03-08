@@ -96,3 +96,9 @@ Route::get('somar', function(Request $request){
                                 $salarioAtual = $salarioAnterior + $valorAumento;
                                 return 'Salario Anterior: '.  $salarioAnterior .  ' , Percentual de Aumento: '.  $percentualAumento .  ' , Salario Atual: '.   $salarioAtual;
                                 });
+
+                                Route::get('recompensaValorCompra' , function (Request $request){
+                                    $valorCompra = $request->input('valorCompra');
+                                    $quantPontos = $valorCompra /10;
+                                    return $quantPontos;
+                                    });
