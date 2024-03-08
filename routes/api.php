@@ -108,3 +108,12 @@ Route::get('somar', function(Request $request){
                                         $valorComissão = ($valorTotal*5) /100;
                                         return $valorComissão;
                                         });
+
+                                        Route::get('dias' , function (Request $request){
+                                            $numeroDias = $request->input('numeroDias');
+                                            $horas = $numeroDias *24;
+                                            $minutos = $horas *60;
+                                            $segundos = $minutos *60;
+                                            return 'Horas: ' .$horas . ' , Minutos: ' . $minutos . ', Segundos: '. $segundos;
+                                            });
+                                            
