@@ -67,3 +67,9 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
                     $resultado = $segundaEntrada/$primeiraEntrada;
                     return $resultado;
                 });
+
+                Route::get('dobro' , function (Request $request){
+                    $primeiraEntrada = $request->input('primeiraEntrada');
+                    $resultado = $primeiraEntrada*2;
+                    return 'O dobro do ' .$primeiraEntrada . ' é igual a:' . $resultado;
+                    });
