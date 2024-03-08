@@ -36,4 +36,10 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
            $resultado = $primeiraEntrada - $segundaEntrada - $terceiraEntrada;
            return $resultado;
            });
-           
+
+           Route::get('dividir' , function (Request $request){
+            $primeiraEntrada = $request->input('primeiraEntrada');
+            $segundaEntrada = $request->input('segundaEntrada');
+            $resultado = $primeiraEntrada/$segundaEntrada;
+            return $resultado;
+        });
