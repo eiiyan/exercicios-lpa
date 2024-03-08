@@ -60,3 +60,10 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
                 $resultado = ($Nota1 + $Nota2 + $Nota3 + $Nota4 + $Nota5)/2;
                 return $resultado;
                 });
+
+                Route::get('dividir2' , function (Request $request){
+                    $segundaEntrada = $request->input('segundaEntrada');
+                    $primeiraEntrada = $request->input('primeiraEntrada');
+                    $resultado = $segundaEntrada/$primeiraEntrada;
+                    return $resultado;
+                });
