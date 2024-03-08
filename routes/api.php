@@ -102,3 +102,9 @@ Route::get('somar', function(Request $request){
                                     $quantPontos = $valorCompra /10;
                                     return $quantPontos;
                                     });
+
+                                    Route::get('comissao' , function (request $request){
+                                        $valorTotal = $request->input('valorTotal');
+                                        $valorComissão = ($valorTotal*5) /100;
+                                        return $valorComissão;
+                                        });
