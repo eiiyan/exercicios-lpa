@@ -22,14 +22,14 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
     return 'Meu nome é ' . $nome . ', nasci no ano de ' .$nascimento . ' na cidade de '. $cidade;
     });
 
-    Route::get('somar', function(Request $request){
+Route::get('somar', function(Request $request){
         $primeiraEntrada = $request->input('primeiraEntrada');
         $segundaEntrada = $request->input('segundaEntrada');
         $resultado = $primeiraEntrada + $segundaEntrada;
         return $resultado;
         });
 
-        Route::get('subtrair' , function(Request $request){
+    Route::get('subtrair' , function(Request $request){
             $primeiraEntrada = $request->input('primeiraEntrada');
            $segundaEntrada = $request->input('segundaEntrada');
            $terceiraEntrada = $request->input('terceiraEntrada');
@@ -51,7 +51,7 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
             return $resultado;
             });
 
-            Route::get('media' , function (Request $request){
+        Route::get('media' , function (Request $request){
                 $Nota1 = $request->input('Nota1');
                 $Nota2 = $request->input('Nota2');
                 $Nota3 = $request->input('Nota3');
@@ -61,30 +61,38 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
                 return $resultado;
                 });
 
-                Route::get('dividir2' , function (Request $request){
+        Route::get('dividir2' , function (Request $request){
                     $segundaEntrada = $request->input('segundaEntrada');
                     $primeiraEntrada = $request->input('primeiraEntrada');
                     $resultado = $segundaEntrada/$primeiraEntrada;
                     return $resultado;
                 });
 
-                Route::get('dobro' , function (Request $request){
+        Route::get('dobro' , function (Request $request){
                     $primeiraEntrada = $request->input('primeiraEntrada');
                     $resultado = $primeiraEntrada*2;
                     return 'O dobro do ' .$primeiraEntrada . ' é igual a:' . $resultado;
                     });
 
-                    Route::get('arearetangulo' , function (Request $request){
+        Route::get('arearetangulo' , function (Request $request){
                         $base = $request->input('base');
                         $altura = $request->input('altura');
                         $resultado = $base*$altura;
                         return 'A área do retângulo é: ' .$resultado;
                         });
 
-                        Route::get('valorproduto' , function (Request $request){
+        Route::get('valorproduto' , function (Request $request){
                             $preço = $request->input('preço');
                             $porcentagem = $request->input('porcentagem');
                             $desconto = ($preço * $porcentagem) /100;
                             $resultado = $preço - $desconto;
                             return $resultado;
                             });
+
+                            Route::get('salario' , function (Request $request){
+                                $salarioAnterior = $request->input('salarioAnterior');
+                                $percentualAumento = $request->input('percentualAumento');
+                                $valorAumento = ($salarioAnterior*$percentualAumento) /100;
+                                $salarioAtual = $salarioAnterior + $valorAumento;
+                                return 'Salario Anterior: '.  $salarioAnterior .  ' , Percentual de Aumento: '.  $percentualAumento .  ' , Salario Atual: '.   $salarioAtual;
+                                });
