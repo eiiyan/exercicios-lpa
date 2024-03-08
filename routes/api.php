@@ -116,4 +116,11 @@ Route::get('somar', function(Request $request){
                                             $segundos = $minutos *60;
                                             return 'Horas: ' .$horas . ' , Minutos: ' . $minutos . ', Segundos: '. $segundos;
                                             });
-                                            
+
+                                            Route::get('totalCompra' , function (Request $request){
+                                                $preço = $request->input('preço');
+                                                $quantComprada = $request->input('quantComprada');
+                                                $valorTotal = $preço * $quantComprada;
+                                                return $valorTotal;
+                                                });
+                                                
