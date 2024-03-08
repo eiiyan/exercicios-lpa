@@ -61,7 +61,7 @@ Route::get('somar', function(Request $request){
                 return $resultado;
                 });
 
-        Route::get('dividir2' , function (Request $request){
+    Route::get('dividir2' , function (Request $request){
                     $segundaEntrada = $request->input('segundaEntrada');
                     $primeiraEntrada = $request->input('primeiraEntrada');
                     $resultado = $segundaEntrada/$primeiraEntrada;
@@ -90,11 +90,11 @@ Route::get('somar', function(Request $request){
                             });
 
                             Route::get('salario' , function (Request $request){
-                                $salarioAnterior = $request->input('salarioAnterior');
-                                $percentualAumento = $request->input('percentualAumento');
-                                $valorAumento = ($salarioAnterior*$percentualAumento) /100;
-                                $salarioAtual = $salarioAnterior + $valorAumento;
-                                return 'Salario Anterior: '.  $salarioAnterior .  ' , Percentual de Aumento: '.  $percentualAumento .  ' , Salario Atual: '.   $salarioAtual;
+                            $salarioAnterior = $request->input('salarioAnterior');
+                             $percentualAumento = $request->input('percentualAumento');
+                             $valorAumento = ($salarioAnterior*$percentualAumento) /100;
+                            $salarioAtual = $salarioAnterior + $valorAumento;
+                return 'Salario Anterior: '.  $salarioAnterior .  ' , Percentual de Aumento: '.  $percentualAumento .  ' , Salario Atual: '.   $salarioAtual;
                                 });
 
                                 Route::get('recompensaValorCompra' , function (Request $request){
