@@ -28,3 +28,12 @@ Route::get('nome/nascimento/cidade' , function (Request $request){
         $resultado = $primeiraEntrada + $segundaEntrada;
         return $resultado;
         });
+
+        Route::get('subtrair' , function(Request $request){
+            $primeiraEntrada = $request->input('primeiraEntrada');
+           $segundaEntrada = $request->input('segundaEntrada');
+           $terceiraEntrada = $request->input('terceiraEntrada');
+           $resultado = $primeiraEntrada - $segundaEntrada - $terceiraEntrada;
+           return $resultado;
+           });
+           
