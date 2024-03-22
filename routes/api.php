@@ -122,3 +122,59 @@ Route::get('totalCompra', function (Request $request) {
     $valorTotal = $preço * $quantComprada;
     return $valorTotal;
 });
+
+Route::get('mensagem', function (Request $request) {
+    $numero = $request->input('numero');
+
+
+    if ($numero > 10) {
+        return "maior que 10";
+    } else {
+        return "menor que 10";
+    }
+});
+
+
+Route::get('temperaturaatual', function (Request $request) {
+    $temperatura = $request->input('temperatura');
+
+    if ($temperatura > 30) {
+        return "Esta quente!";
+    } else {
+        return "Nao esta quente!";
+    }
+});
+
+Route::get('positivo', function (Request $request) {
+    $numero = $request->input('numero');
+
+    if ($numero > 0) {
+        return 'positivo';
+    }
+    if ($numero < 0) {
+        return 'negativo';
+    } else {
+        return 'Igual a 0';
+    }
+});
+
+Route::get('maiornumero', function (Request $request) {
+    $numero1 = $request->input('numero1');
+    $numero2 = $request->input('numero2');
+
+    if ($numero1 > $numero2) {
+        return "O " . $numero1 . " é maior que o " . $numero2;
+    } else {
+        return "O " . $numero2 . " é maior que o " . $numero1;
+    }
+});
+
+Route::get('divisivel', function (Request $request) {
+    $numero = $request->input('numero');
+
+    if ($numero % 3 == 0) {
+        return 'O numero é divisivel por 3';
+    } else {
+        return 'O numero não é divisivel por 3';
+    }
+});
