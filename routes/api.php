@@ -178,3 +178,5 @@ Route::get('divisivel', function (Request $request) {
         return 'O numero não é divisivel por 3';
     }
 });
+
+
