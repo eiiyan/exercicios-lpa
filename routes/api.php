@@ -358,3 +358,108 @@ Route::get('ex20', function (Request $request) {
         return $numero1 / $numero2;
     }
 });
+
+Route::get('media' , function (Request $request){
+$nota1 = $request->input('nota1');
+$nota2 = $request->input('nota2');
+$nota3 = $request->input('nota3');
+$resultado = $nota1 + $nota2 + $nota3 / 3;
+
+if($resultado >= 7){
+    return 'Parabéns, você foi aprovado!';
+} else{
+    return 'Sinto muito, você não foi aprovado!';
+}
+});
+
+Route::get('imposto', function (Request $request){
+$renda = $request->input('renda');
+
+if($renda<=1900){
+    return "Você está isento de imposto" ;
+}
+if($renda>=1901){
+    if($renda<=2800) {
+        return "Seu imposto de renda é " . ($renda *7)/100;
+    }
+    if($renda>=2801){
+        if ($renda<3700){
+return "Seu imposto é de " . ($renda *15)/100;
+        }
+        if($renda>=3700){
+            return "Seu imposto é de " . ($renda *22)/100;
+        }
+}
+}
+});
+
+Route::get('bissexto' , function (Request $request){
+$ano = $request->input('ano');
+
+if($ano % 4 ==0){
+    return "Esse ano não é bissexto";
+} else {
+    return "Esse ano é bissexto";
+}
+});
+
+Route::get('produto' , function (Request $request){
+$preço = $request->input('preço');
+$desconto = ($preço * 15 / 100);
+
+if($preço >=1000){
+    return "O valor da sua compra é R$" . $preço - $desconto . ",00";
+} else {
+    return "O valor da sua compra é R$" . $preço . ",00";
+}
+});
+
+Route::get('imc' , function (Request $request){
+$peso = $request->input('peso');
+$altura = $request->input('altura');
+$resultado = $peso/($altura*$altura);
+
+if($resultado <=18.5){
+return "Você está abaixo do peso";
+
+ if ($resultado >=18.5){
+ if ($resultado<=24.9){
+return "Você está com peso adequado";
+ }
+ }
+
+if($resultado>=25){
+ if($resultado<=29.9){
+    return "Você está acima do peso";
+}
+}
+
+if($resultado>=30){ 
+ if($resultado<34.9){
+    return "Você está no  1° grau de obesidade";
+}
+}
+
+if($resultado>=35){
+if($resultado>=39.9){
+    return "Você está no 2° grau de obesidade ";
+}
+}
+
+if($resultado >=40){
+ if ($resultado<=49.9){
+    return "Você está no 3° grau de obesidade";
+}
+}
+
+if($resultado >=50){
+ if ($resultado>=59.9){
+    return "Você está no 4° grau de obesidade";
+}
+}
+
+if($resultado >=60){
+    return "Você está no 5° grau de obesidade";
+}
+}
+});
