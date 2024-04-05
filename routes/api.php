@@ -376,18 +376,18 @@ Route::get('imposto', function (Request $request){
 $renda = $request->input('renda');
 
 if($renda<=1900){
-    return "Você está isento de imposto" ;
+    return "Você está isento de imposto!" ;
 }
 if($renda>=1901){
     if($renda<=2800) {
-        return "Seu imposto de renda é " . ($renda *7)/100;
+        return "Seu imposto de renda é de: R$" . ($renda *7)/100 . ",00";
     }
     if($renda>=2801){
         if ($renda<3700){
-return "Seu imposto é de " . ($renda *15)/100;
+return "Seu imposto é de: R$" . ($renda *15)/100 . ",00";
         }
         if($renda>=3700){
-            return "Seu imposto é de " . ($renda *22)/100;
+            return "Seu imposto é de: R$" . ($renda *22)/100 . ",00";
         }
 }
 }
@@ -397,9 +397,9 @@ Route::get('bissexto' , function (Request $request){
 $ano = $request->input('ano');
 
 if($ano % 4 ==0){
-    return "Esse ano não é bissexto";
+    return "$ano  é um ano bissexto!";
 } else {
-    return "Esse ano é bissexto";
+    return "$ano não é um ano bissexto!";
 }
 });
 
@@ -420,46 +420,72 @@ $altura = $request->input('altura');
 $resultado = $peso/($altura*$altura);
 
 if($resultado <=18.5){
-return "Você está abaixo do peso";
-
+return "Você está abaixo do peso!";
+}
  if ($resultado >=18.5){
  if ($resultado<=24.9){
-return "Você está com peso adequado";
+return "Você está com peso adequado!";
  }
  }
 
 if($resultado>=25){
  if($resultado<=29.9){
-    return "Você está acima do peso";
+    return "Você está acima do peso!";
 }
 }
 
 if($resultado>=30){ 
  if($resultado<34.9){
-    return "Você está no  1° grau de obesidade";
+    return "Você está no  1° grau de obesidade!";
 }
 }
 
 if($resultado>=35){
-if($resultado>=39.9){
-    return "Você está no 2° grau de obesidade ";
+if($resultado<=39.9){
+    return "Você está no 2° grau de obesidade! ";
 }
 }
 
 if($resultado >=40){
  if ($resultado<=49.9){
-    return "Você está no 3° grau de obesidade";
+    return "Você está no 3° grau de obesidade!";
 }
 }
 
 if($resultado >=50){
- if ($resultado>=59.9){
-    return "Você está no 4° grau de obesidade";
+ if ($resultado<=59.9){
+    return "Você está no 4° grau de obesidade!";
 }
 }
 
 if($resultado >=60){
-    return "Você está no 5° grau de obesidade";
+    return "Você está no 5° grau de obesidade!";
 }
+
+});
+
+Route::get('aumento' , function (Request $request){
+$salario = $request->input('salario');
+$codigo = $request->input('codigo');
+
+$codigo1 = ($salario * 5) /100;
+$codigo2 = ($salario * 10) /100;
+$codigo3 = ($salario * 15) /100;
+$codigo4 = ($salario * 20) / 100;
+
+if($codigo == 1){
+    return "O valor do seu aumento salarial é de: R$ " .($codigo1 + $salario) . ",00";
+} 
+if ($codigo == 2) {
+return "O valor do seu aumento salarial é de: R$". ($codigo2 + $salario . ",00");
+} 
+if ($codigo == 3){
+    return "O valor do seu aumento salarial é de: R$". ($codigo3 + $salario) . ",00";
+} 
+if ($codigo == 4) {
+    return "O valor do seu aumento salarial é de: R$" .($codigo4 + $salario) . ",00";
 }
 });
+
+
+
