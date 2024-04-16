@@ -123,28 +123,6 @@ Route::get('totalCompra', function (Request $request) {
     return $valorTotal;
 });
 
-Route::get('mensagem', function (Request $request) {
-    $numero = $request->input('numero');
-
-
-    if ($numero > 10) {
-        return "maior que 10";
-    } else {
-        return "menor que 10";
-    }
-});
-
-
-Route::get('temperaturaatual', function (Request $request) {
-    $temperatura = $request->input('temperatura');
-
-    if ($temperatura > 30) {
-        return "Está quente!";
-    } else {
-        return "Não está quente!";
-    }
-});
-
 Route::get('ex1', function (Request $request) {
     $numero = $request->input('numero');
 
